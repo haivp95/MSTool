@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-
+import ldap
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+ldap.PORT = 8433
+AUTH_LDAP_BIND_DN = 'cn=users,dc=hcnet,dc=vn'
+AUTH_LDAP_SERVER_URI = 'LDAP://vnhqpdc03.hcnet.vn:389'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
