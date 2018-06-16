@@ -16,9 +16,15 @@ from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 import cx_Oracle
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ldap.PORT = 8433
-AUTH_LDAP_BIND_DN = 'cn=users,dc=hcnet,dc=vn'
+
+#testLDAP
 AUTH_LDAP_SERVER_URI = 'LDAP://vnhqpdc03.hcnet.vn:389'
+ldap.PORT = 8433
+AUTH_LDAP_BIND_DN = ""
+AUTH_LDAP_BIND_PASSWORD = ""
+AUTH_LDAP_USER_SEARCH = LDAPSearch("cn=users,dc=hcnet,dc=vn",
+    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,cn=users,dc=hcnet,dc=vn"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -58,7 +64,9 @@ ROOT_URLCONF = 'testMS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            '/python-project/MSTool/testMS/testMS/templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,6 +91,8 @@ DATABASES = {
         'NAME': 'DBHDWVN-VIETTEL.PROD.ITC.HCNET.VN:1521/HDWVN.HOMECREDIT.VN',
         'USER': 'APP_REPORT_INT[AP_OPS]',
         'PASSWORD': 'Xcvert6uiopp',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
