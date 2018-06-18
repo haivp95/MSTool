@@ -64,7 +64,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            '/python-project/MSTool/testMS/testMS/templates'
+            '/python-project/MSTool/testMS/testMS/templates/login'
         ],
         'APP_DIRS': True,
         'OPTIONS': {

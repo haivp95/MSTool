@@ -37,7 +37,7 @@ def LoginLDAP (request):
             state = 'Welcome ' + str(user)
         else:
             state = 'Not valid'
-    return render(request, 'Login.html',{
+    return render(request, 'login/Login.html',{
         'state' : state, 'username' : username
     }
     )
