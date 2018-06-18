@@ -22,7 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ldap.PORT = 8433
 # AUTH_LDAP_BIND_DN = ""
 # AUTH_LDAP_BIND_PASSWORD = ""
-#AUTH_LDAP_USER_SEARCH = LDAPSearch("cn=users,dc=hcnet,dc=vn",    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+#AUTH_LDAP_USER_SEARCH = LDAPSearch("cn=users,dc=hcnet,dc=vn",    
+# ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
 #AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,cn=users,dc=hcnet,dc=vn"
 
 # Quick-start development settings - unsuitable for production
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'VNpost',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +66,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            '/python-project/MSTool/testMS/testMS/templates/login'
+            '/python-project/MSTool/testMS/testMS/templates/login',
+            '/python-project/MSTool/testMS/testMS/templates/VNpost'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -85,11 +88,13 @@ WSGI_APPLICATION = 'testMS.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
+    'oracle': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'DBHDWVN-VIETTEL.PROD.ITC.HCNET.VN:1521/HDWVN.HOMECREDIT.VN',
+        'USER': 'APP_REPORT_INT[AP_OPS]',
+        'PASSWORD': 'Xcvert6uiopp',
+    },
     'default': {
-        # 'ENGINE': 'django.db.backends.oracle',
-        # 'NAME': 'DBHDWVN-VIETTEL.PROD.ITC.HCNET.VN:1521/HDWVN.HOMECREDIT.VN',
-        # 'USER': 'APP_REPORT_INT[AP_OPS]',
-        # 'PASSWORD': 'Xcvert6uiopp',
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
@@ -135,7 +140,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-AUTHENTICATION_BACKENDS = [
-    # 'django_auth_ldap.backend.LDAPBackend',
-    'django.contrib.auth.backends.ModelBackend',
-]
+# AUTHENTICATION_BACKENDS = [
+#     # 'django_auth_ldap.backend.LDAPBackend',
+#     #'django.contrib.auth.backends.ModelBackend',
+# ]
