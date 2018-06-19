@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'testMS.VNpost',
+    'VNpost',
 ]
 
 MIDDLEWARE = [
@@ -89,10 +89,12 @@ WSGI_APPLICATION = 'testMS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'DBHDWVN-VIETTEL.PROD.ITC.HCNET.VN:1521/HDWVN.HOMECREDIT.VN',
-        'USER': 'APP_REPORT_INT[AP_OPS]',
-        'PASSWORD': 'Xcvert6uiopp',
+        # 'ENGINE': 'django.db.backends.oracle',
+        # 'NAME': 'DBHDWVN-VIETTEL.PROD.ITC.HCNET.VN:1521/HDWVN.HOMECREDIT.VN',
+        # 'USER': 'APP_REPORT_INT[AP_OPS]',
+        # 'PASSWORD': 'Xcvert6uiopp',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -134,6 +136,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/python-project/MSTool/testMS/testMS/static/login/',
+]
 
 
 # AUTHENTICATION_BACKENDS = [
