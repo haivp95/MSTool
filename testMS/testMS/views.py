@@ -6,7 +6,7 @@ import django.contrib.auth
 from django.template import RequestContext
 import requests
 
-
+ldap.set_option(ldap.OPT_REFERRALS, 0)
 ldap.PORT = 8433
 con = ldap.initialize('LDAP://vnhqpdc03.hcnet.vn:389')
 def LoginLDAP (request):
