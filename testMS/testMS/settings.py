@@ -17,14 +17,7 @@ import cx_Oracle
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-#testLDAP
-# AUTH_LDAP_SERVER_URI = 'LDAP://vnhqpdc03.hcnet.vn:389'
-# ldap.PORT = 8433
-# AUTH_LDAP_BIND_DN = ""
-# AUTH_LDAP_BIND_PASSWORD = ""
-#AUTH_LDAP_USER_SEARCH = LDAPSearch("cn=users,dc=hcnet,dc=vn",    
-# ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
-#AUTH_LDAP_USER_DN_TEMPLATE = "uid=%(user)s,cn=users,dc=hcnet,dc=vn"
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -67,7 +60,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             '/python-project/MSTool/testMS/testMS/templates/login',
-            '/python-project/MSTool/testMS/testMS/templates/VNpost'
+            '/python-project/MSTool/testMS/testMS/templates/VNpost',
+            '/python-project/MSTool/testMS/testMS/templates/index'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -139,6 +133,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/python-project/MSTool/testMS/testMS/static/login/',
+    os.path.join(BASE_DIR, "index"),
+    '/python-project/MSTool/testMS/testMS/static/index/',
 ]
 
 
