@@ -1,6 +1,80 @@
-{% extends 'index.html' %}
-
+{% extends 'index.html' %} 
+{% load static %} 
 {% block content %}
-  <!-- <h2>VNPost</h2>
-  <p>Deliverys: <strong>{{ Deliverys }}</strong>, -->
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Data Tables
+    <small>data mẫu thôi nha, hihihi <3</small>
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Data Table With Full Features</h3>
+        </div>
+        <div class="box-body">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Vote</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for v in Deliverys %}
+              <tr>
+                <td>{{ v.ID }}</td>
+                <td>{{ v.USERNAME }}</td>
+                <td>{{ v.VOTE }}</td>
+                <td>{{ v.TIMESTAMP }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- jQuery 3 -->
+<script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<!-- SlimScroll -->
+<script src="{% static 'bower_components/jquery-slimscroll/jquery.slimscroll.min.js' %}"></script>
+<!-- FastClick -->
+<script src="{% static 'bower_components/fastclick/lib/fastclick.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.min.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'dist/js/demo.js' %}"></script>
+<!-- DataTables -->
+<script src="{% static 'bower_components/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js' %}"></script>
+<script>
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
+  })
+</script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging': true,
+      'lengthChange': true,
+      'searching': true,
+      'ordering': true,
+      'info': true,
+      'autoWidth': false
+    })
+  })
+</script> 
 {% endblock %}
